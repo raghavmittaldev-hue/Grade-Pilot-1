@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MarkBook</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>MarkBook</h1>
+    <p>Record marks for each student, then review individual performance and class statistics.</p>
+  </header>
+
+  <main>
+    <section class="panel" aria-labelledby="stats-h">
+      <h2 id="stats-h">Class statistics</h2>
+      <p id="stats-empty" class="empty">Add a student and some marks to see statistics.</p>
+      <div id="stats" hidden>
+        <dl class="cards" id="cards"></dl>
+        <div class="two">
+          <div>
+            <h3>Subject averages</h3>
+            <div id="subject-bars" class="bars"></div>
+          </div>
+          <div>
+            <h3>Grade distribution</h3>
+            <div id="grade-bars" class="bars"></div>
+          </div>
+        </div>
+        <div class="two">
+          <div>
+            <h3>Top performers</h3>
+            <ol id="top" class="plain"></ol>
+          </div>
+          <div>
+            <h3>Below pass mark (40)</h3>
+            <ul id="attention" class="plain"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="students-h">
+      <div class="head">
+        <h2 id="students-h">Students</h2>
+        <input id="search" type="search" placeholder="Search name or roll number" aria-label="Search students">
+      </div>
+
+      <form id="student-form" class="inline-form">
+        <input id="name" placeholder="Full name" maxlength="80" required aria-label="Full name">
+        <input id="roll" placeholder="Roll number" maxlength="30" required aria-label="Roll number">
+        <button class="primary" type="submit">Add student</button>
+      </form>
+      <p id="error" class="error" role="alert" hidden></p>
+
+      <div id="list"></div>
+      <p id="empty" class="empty" hidden>No students found.</p>
+    </section>
+  </main>
+
+  <section class="panel log-panel" aria-labelledby="log-h">
+    <div class="head"><h2 id="log-h">Request log</h2><button id="clear-log" class="link">Clear</button></div>
+    <ol id="log" class="log"></ol>
+  </section>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
